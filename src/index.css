@@ -21,8 +21,18 @@ body{
   color: white;
 }
 
-#navbar-box {
-  border: 1px solid grey;
-  min-height: 100px;
+#navbar-container {
+  border: 2px solid grey;
+  display: flex;
+  justify-content: space-evenly;
   color: #a82037;
+  background-color:grey;
+flex-grow: 1;
+min-width: 75vb;
+}
+a:link {
+  color: #a82037;
+}
+a:visited {
+  color:#2D1F2A
 }
