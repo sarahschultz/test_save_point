@@ -1,0 +1,28 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: whitesmoke;
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  background-image: url("/src/assets/Icecreamclub.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 5rem;
+  min-height: 250px;
+  min-width: auto;
+}
+
+body{
+  color: white;
+}
+
+#navbar-box {
+  border: 1px solid grey;
+  min-height: 100px;
+  color: #a82037;
+}
