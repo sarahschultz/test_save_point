@@ -1,84 +1,56 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-// import Home from './components/Home';
-// import AllPosts from './components/AllPosts'
 import SinglePost from './components/SinglePost';
-import Registration from './components/registration/Registration';
-import './index.css'
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import './index.css';
+import PostDeets from './components/PostDeets';
+import AccountLogin from './components/registration/AccountLogin';
 
-const cohort = "2304-FTB-ET-WEB-FT"
+const cohort = "2304-FTB-ET-WEB-FT";
 const baseURL = `https://strangers-things.herokuapp.com/api/${cohort}`;
 
-
 function App() {
-  const [allPosts, setAllPosts] = useState([])
+  const [allPosts, setAllPosts] = useState([]);
+  //set login
+
   useEffect(() => {
-
     async function fetchPosts() {
-
       try {
-        const response = await fetch(`${baseURL}/posts`)
-        const translateddata = await response.json();
+        const response = await fetch(`${baseURL}/posts`);
+        const data = await response.json();
 
-        setAllPosts(translateddata.data.posts)
-        console.log(translateddata)
+        setAllPosts(data.data.posts);
+        console.log(data);
       } catch (error) {
         console.log(error);
-      };
-    };
+      }
+    }
 
     fetchPosts();
   }, []);
 
-
   return (
-    <>
-
-      <div id="navbar-container">
-<Registration />
-        <div id="navbar">
-          <Link to="/">Home</Link>
-          <Link to="/SinglePost">Single Post</Link>
-       
-          <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route path="/SinglePost" element={<SinglePost />} />
-          </Routes>
-
-        </div>
+    <>  
+    <div id="top-header">
+      <div id="dumblogo">
+          <img></img>
       </div>
-      <div>
-
         <h1>Not Stranger Things but Stranger's Things...</h1>
         <h3>Buy, Sell, or Trade</h3>
-      </div>
-      <h2>Stranger's Posts:</h2>
-      {allPosts.length ?
+        <Navbar />
+    </div>
 
-        allPosts.map((post) => {
-
-          return (
-
-            <SinglePost key={post._id} setAllPosts={setAllPosts} post={post} />
-
-          )
-
-        }) :
-        <p>Loading posts...</p>
-      }
+      <Routes>
+        <Route path="/" element={<Home allPosts={allPosts} />} />
+        
+        <Route path="/PostDeets/:id" element={<PostDeets allPosts={allPosts} />} />
 
 
-
-      {/* <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> */}
-      {/* <Routes>
-        <Route path="/" element={<AllProducts />} />
-        <Route
-          path="/register"
-          element={<Register setIsLoggedIn={setIsLoggedIn} />}
-        />
-      </Routes> */}
+        <Route path="/registration/AccountLogin" element={<AccountLogin />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

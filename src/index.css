@@ -10,7 +10,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   background-image: url("/src/assets/Icecreamclub.jpeg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   margin: 5rem;
   min-height: 250px;
@@ -27,12 +27,38 @@ body{
   justify-content: space-evenly;
   color: #a82037;
   background-color:grey;
-flex-grow: 1;
-min-width: 75vb;
+  min-width: 7vh;
+  border: 1px solid yellow;
+
 }
 a:link {
   color: #a82037;
 }
 a:visited {
   color:#2D1F2A
+}
+
+.account-form-container {
+  border: 1px solid green;
+}
+
+#home-register-box {
+  border: 1px solid blue
+}
+
+#top-header {
+  border: 1px solid pink;
+}
+
+#dumblogo {
+  background-image: url('./assets/IMG_0102.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 10vh;
+  max-width: auto;
+}
+
+
+#single-post-box {
+  border: 1px solid red;
 }

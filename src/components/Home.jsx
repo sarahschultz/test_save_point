@@ -1,16 +1,13 @@
-import { useState, useEffect } from "react";
-import Navbar from "./Navbar";
-import Registration from "./registration/Registration";
-import { Routes, Route } from "react-router-dom";
-import App from "../App";
-
-
-function Home() {
+import { useState, useEffect } from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
+import Registration from './registration/Registration';
+import SinglePost from './SinglePost';
+function Home({ allPosts }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-   
+    const token = localStorage.getItem('token');
+
     if (token) {
       setIsLoggedIn(true);
     }
@@ -18,15 +15,29 @@ function Home() {
 
   return (
     <div>
-      <h1>Welcome to Strangers Things</h1>
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      <Routes>
-        {/* <Route path="/" element={<App />} /> */}
-        <Route
-          path="/register"
-          element={<Registration setIsLoggedIn={setIsLoggedIn} />}
-        />
-      </Routes>
+
+    {isLoggedIn && <h1>Welcome to Strangers Things</h1>}
+
+    
+      {allPosts.length > 0 ? (
+        <div>
+          {allPosts.map((post) => {
+            // console.log(post)
+            return (
+            
+
+            <SinglePost key={post._id} post={post}/>
+              
+
+            )
+          })}
+        </div>
+
+
+
+      ) : (
+        <p>Loading posts...</p>
+      )}
     </div>
   );
 }

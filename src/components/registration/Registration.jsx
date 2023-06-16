@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import { registerUser } from "api-adapters";
+import { RegisterUser } from "./RegisterUser";
 import { useNavigate } from "react-router-dom";
 
-const Registration = (props) => {
+const Register = (props) => {
   const setIsLoggedIn = props.setIsLoggedIn
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ const Registration = (props) => {
     e.preventDefault() 
    
     try {
-      const result = await registerUser(username, password)
+      const result = await RegisterUser(username, password)
       console.log(result)
 
       localStorage.setItem('token', result.token)
@@ -24,8 +24,8 @@ const Registration = (props) => {
     }
   }
   return (
-    <div>
-      <h2>Register</h2>
+    <div id="home-register-box">
+      <h2>Register as a New Stranger</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -53,4 +53,4 @@ const Registration = (props) => {
   );
 };
 
-export default Registration
+export default Register
