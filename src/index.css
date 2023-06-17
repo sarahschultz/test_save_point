@@ -1,3 +1,13 @@
+/* Hex colors */
+/* 
+#2d1f2a - darkest black we have
+#721f2a - dark red
+#a82037 - lighter red
+#48354c - dark-ish grey purple
+#5c4444 - grey
+*/
+
+
 :root {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
@@ -9,33 +19,39 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-image: url("/src/assets/Icecreamclub.jpeg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin: 5rem;
-  min-height: 250px;
-  min-width: auto;
 }
 
 body{
-  color: white;
+  background-image: url("/src/assets/Icecreamclub.jpeg");
+  background-size: inherit;
+  background-repeat: no-repeat;
+  margin: 5vh;
+  min-height: 250px;
+  min-width: auto;
+  max-width: 400vh;
+  color: whitesmoke;
 }
 
 #navbar-container {
-  border: 2px solid grey;
+  border: 2px solid #48354c;
   display: flex;
   justify-content: space-evenly;
   color: #a82037;
-  background-color:grey;
+  background-color:#48354c;
   min-width: 7vh;
   border: 1px solid yellow;
-
 }
+
+#navbar{
+  display: flex;
+  justify-content: space-around;
+}
+
 a:link {
   color: #a82037;
 }
 a:visited {
-  color:#2D1F2A
+  color: cyan;
 }
 
 .account-form-container {
@@ -48,6 +64,9 @@ a:visited {
 
 #top-header {
   border: 1px solid pink;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 #dumblogo {
@@ -56,9 +75,34 @@ a:visited {
   background-repeat: no-repeat;
   min-height: 10vh;
   max-width: auto;
+  border:1px, solid, #2D1F2A;
+  display: flex;
 }
 
+#search-bar-container {
+  border: 1px solid salmon;
+  color: #a82037;
+  background-color: #242424;
+}
 
-#single-post-box {
+#search-bar-else-case {
+  color: #2d1f2a;
+  font-style: italic;
+  background-color: lightgreen;
+}
+
+#single-post-card {
   border: 1px solid red;
+}
+
+#stranger-login-link {
+  border: 1px dotted #2d1f2a;
+}
+
+#home-link {
+border: 1px dotted #2d1f2a;
+}
+
+.actual-logo {
+  
 }

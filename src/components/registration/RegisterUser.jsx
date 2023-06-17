@@ -1,6 +1,4 @@
-import React from 'react'
-import Registration from './Registration';
-export const RegisterUser = async (username, password) => {
+const RegisterUser = async (username, password) => {
     try {
       const response = await fetch(`${BASE_URL}/users/register`, {
         method: "POST",
@@ -22,3 +20,5 @@ export const RegisterUser = async (username, password) => {
       console.log(error);
     }
   };
+
+  export default RegisterUser

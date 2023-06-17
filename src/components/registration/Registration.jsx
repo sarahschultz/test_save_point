@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { RegisterUser } from "./RegisterUser";
 import { useNavigate } from "react-router-dom";
+// import RegisterUser from "./RegisterUser";
 
 const Register = (props) => {
   const setIsLoggedIn = props.setIsLoggedIn

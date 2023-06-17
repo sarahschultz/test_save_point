@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import '../../index.css';
 
 function AccountLogin(props) {
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const navigate= useNavigate()
+  const setIsLoggedIn=props.setIsLoggedIn;
+  const setLoggedInUser=props.setLoggedInUser;
 
   const login = (e) => {
     e.preventDefault();
@@ -14,14 +17,16 @@ function AccountLogin(props) {
       password,
     };
     localStorage.setItem('token-info', JSON.stringify(userData));
-    setIsLoggedin(true);
-    setUserName('');
+    setIsLoggedIn(true);
+    setLoggedInUser(username);
     setPassword('');
+    navigate('/')
   };
 
   const logout = () => {
     localStorage.removeItem('token-info');
     setIsLoggedin(false);
+    setLoggedInUser('');
   };
 
   return (
@@ -44,7 +49,7 @@ function AccountLogin(props) {
               placeholder="Your Stranger Password"
             />
             <button type="submit" onClick={login}>
-              Don't Have a Stranger Account? Register Here:
+              Login to My Stranger Account
             </button>
           </form>
         </>

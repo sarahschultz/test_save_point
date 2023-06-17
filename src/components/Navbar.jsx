@@ -1,18 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AccountLogin from "./registration/AccountLogin";
+import SearchBar from "./searchbar/SearchBar";
+import '../index.css'
 
+function Navbar(props) {
+  const isLoggedIn = props.isLoggedIn;
+  const setIsLoggedIn = props.setIsLoggedIn;
+  const post = props.post;
 
-function Navbar() {
   return (
     <div id="navbar-container">
       <div id="navbar">
-        <Link to="/">Home</Link>
-
-        <Link to="/registration/AccountLogin">My Stranger Login</Link>
+        <Link id="home-link" to="/">Home</Link>
+        <div></div>
+        <Link id="stranger-login-link" to="/registration/AccountLogin">My Stranger Login</Link>
+        </div>
       </div>
-    </div>
   );
 }
 
 export default Navbar;
+

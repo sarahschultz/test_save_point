@@ -1,29 +1,26 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom';
-
+import {useNavigate, Link} from 'react-router-dom';
+import PostDeets from "./PostDeets";
 
 
 function SinglePost(props) {
-  // console.log(props);
+  const navigate = useNavigate();
   const post = props.post
+  // console.log(props);
 
-
-//   ((post) => {
-//     if (post._id == Number(id)) {
-//         return post
-//     }
-// })[0];
   return (
-    <div id="single-post-box">
-      <h2>Stranger's Post Details:
+    <div id="single-post-card" key={props.post._id}
+      onClick={() => {
+        navigate(`/SinglePost`);
+      }}
+    >
+      <h2>Thing Posted by Stranger:
       </h2>
-    
-       <p>Title: {post.title}</p>
-       <p>Description: {post.description}</p>
+       <p>Title: {props.post.title}</p>
+       <p>Description: {props.post.description}</p>
     <div>
-
-       <Link to={`/PostDeets/${post._id}`}>See Stranger Post's Details</Link>
-      </div>
+      <h4>Click post for additional details</h4>
+    </div>
     </div>
   );
 }

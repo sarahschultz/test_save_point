@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import SinglePost from './components/SinglePost';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
-import './index.css';
 import PostDeets from './components/PostDeets';
+import SinglePost from './components/SinglePost';
 import AccountLogin from './components/registration/AccountLogin';
+import RegisterUser from './components/registration/RegisterUser';
+import Registration from './components/registration/Registration'
+import './index.css';
 
 const cohort = "2304-FTB-ET-WEB-FT";
 const baseURL = `https://strangers-things.herokuapp.com/api/${cohort}`;
 
 function App() {
   const [allPosts, setAllPosts] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState([]);
   //set login
 
   useEffect(() => {
@@ -30,15 +34,22 @@ function App() {
     fetchPosts();
   }, []);
 
+  useEffect(() => {
+    console.log(loggedInUser, "is logged in yay")
+    if (isLoggedIn === false) {
+      setLoggedInUser(undefined)
+    }
+  },[isLoggedIn, loggedInUser])
+
   return (
     <>  
     <div id="top-header">
       <div id="dumblogo">
-          <img></img>
-      </div>
+          <img className="actual-logo"></img>
         <h1>Not Stranger Things but Stranger's Things...</h1>
+      </div>
         <h3>Buy, Sell, or Trade</h3>
-        <Navbar />
+        <Navbar setIsLoggedIn={setIsLoggedIn} loggedInUser={loggedInUser}/>
     </div>
 
       <Routes>
@@ -46,8 +57,7 @@ function App() {
         
         <Route path="/PostDeets/:id" element={<PostDeets allPosts={allPosts} />} />
 
-
-        <Route path="/registration/AccountLogin" element={<AccountLogin />} />
+        <Route path="/registration/AccountLogin" element={<AccountLogin setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}/>} />
       </Routes>
     </>
   );
