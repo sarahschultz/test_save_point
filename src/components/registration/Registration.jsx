@@ -48,6 +48,7 @@ const Register = (props) => {
           />
         </label>
         <button type='submit'>Submit</button>
+        {/* think is in Ed's lecture to update State i think...? */}
       </form>
     </div>
   );
