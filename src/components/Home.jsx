@@ -16,11 +16,19 @@ function Home({ allPosts }) {
     }
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      setLoggedInUser(true);
+    }
+  }, []);
+
   const post = allPosts.post;
 
   return (
     <>
-      {isLoggedIn ? (
+      {isLoggedIn && loggedInUser ? (
         <h1>Welcome Stranger!</h1>
       ) : (
         <h1>Welcome to Stranger's Things!</h1>
