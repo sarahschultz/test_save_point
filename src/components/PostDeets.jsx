@@ -3,8 +3,8 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 
 function PostDeets(props) {
   const [post, setPost] = useState({});
+  const isLoggedIn = props.isLoggedIn;
   const { _id } = useParams();
-
 
   // console.log(_id);
 
@@ -15,8 +15,6 @@ function PostDeets(props) {
 
     setPost(foundPost);
   }, [_id, props.post]);
-
-
 
   return (
     <div className="post-card">
@@ -30,8 +28,16 @@ function PostDeets(props) {
             <h3>Created: {post.createdAt}</h3>
             <h3>Last Updated: {post.updatedAt}</h3>
           </div>
-          <Link to="/">Go Back</Link>
-          {/* if isLoggedIn then Edit, Delete, and Talk to Stranger buttons should appear */}
+          
+          <Link to="/">Go Back to All Stranger's Posts</Link>
+
+          {props.isLoggedIn && (
+            <>
+              <button>Edit My Post</button>
+              <button>Delete My Post</button>
+              <button>Talk to Stranger</button>
+            </>
+          )}{" "}
         </>
       ) : (
         <h3>Loading...</h3>

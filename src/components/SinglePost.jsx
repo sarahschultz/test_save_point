@@ -16,7 +16,7 @@ function SinglePost(props) {
         }}
       >
         <div id="single-post-content-details">
-          <h2>For Sale, by Stranger</h2>
+          <h2>For Sale by Stranger</h2>
           <h2> Post Id: {props.post._id}</h2>
           <h4>Title: {props.post.title}</h4>
           <h4>Description: {props.post.description}</h4>
