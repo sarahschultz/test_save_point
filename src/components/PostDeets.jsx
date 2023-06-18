@@ -31,11 +31,11 @@ function PostDeets(props) {
           
           <Link to="/">Go Back to All Stranger's Posts</Link>
 
+          <button>Talk to Stranger</button>
           {props.isLoggedIn && (
             <>
               <button>Edit My Post</button>
               <button>Delete My Post</button>
-              <button>Talk to Stranger</button>
             </>
           )}{" "}
         </>
