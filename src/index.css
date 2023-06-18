@@ -80,9 +80,10 @@ a:visited {
 }
 
 #search-bar-container {
-  border: 1px solid salmon;
+  border: 1px solid #242424;
   color: #a82037;
   background-color: #242424;
+  max-width: max-content;
 }
 
 #search-bar-else-case {
@@ -104,5 +105,10 @@ border: 1px dotted #2d1f2a;
 }
 
 .actual-logo {
-  
+  border: 1px solid mediumseagreen;
+}
+
+#single-post-content-details {
+
+
 }

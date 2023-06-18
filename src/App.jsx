@@ -54,8 +54,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home allPosts={allPosts} />} />
-        
-        <Route path="/PostDeets/:id" element={<PostDeets allPosts={allPosts} />} />
+        <Route path="/components/SinglePost" element={<SinglePost allPosts={allPosts} /> }/>
+        <Route path="/components/PostDeets/:_id" element={<PostDeets allPosts={allPosts} />} />
 
         <Route path="/registration/AccountLogin" element={<AccountLogin setIsLoggedIn={setIsLoggedIn} setLoggedInUser={setLoggedInUser}/>} />
       </Routes>

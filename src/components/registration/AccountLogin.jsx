@@ -32,7 +32,7 @@ function AccountLogin(props) {
   return (
     <>
       <div className="account-form-container">
-        <h1>Login to Stranger Account</h1>
+        <h1>Login to My Stranger Account</h1>
         <>
           <form className="login-form" action="">
             <label htmlFor="username"></label>
@@ -49,7 +49,7 @@ function AccountLogin(props) {
               placeholder="Your Stranger Password"
             />
             <button type="submit" onClick={login}>
-              Login to My Stranger Account
+              Submit Stranger Login
             </button>
           </form>
         </>
