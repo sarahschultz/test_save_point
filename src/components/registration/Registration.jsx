@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-// import { registerUser } from "api-adapters";
 import { useNavigate } from "react-router-dom";
+// import RegisterUser from "./RegisterUser";
 
-const Registration = (props) => {
+const Register = (props) => {
   const setIsLoggedIn = props.setIsLoggedIn
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate= useNavigate()
+  const navigate = useNavigate()
 
-  const handleSubmit = async(e)=>{
-    e.preventDefault() 
-   
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
     try {
-      const result = await registerUser(username, password)
+      const result = await RegisterUser(username, password)
       console.log(result)
 
       localStorage.setItem('token', result.token)
@@ -24,8 +24,8 @@ const Registration = (props) => {
     }
   }
   return (
-    <div>
-      <h2>Register</h2>
+    <div id="home-register-box">
+      <h2>Register as a New Stranger</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -48,9 +48,10 @@ const Registration = (props) => {
           />
         </label>
         <button type='submit'>Submit</button>
+        {/* think is in Ed's lecture to update State i think...? */}
       </form>
     </div>
   );
 };
 
-export default Registration
+export default Register
